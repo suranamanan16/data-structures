@@ -31,8 +31,9 @@ public class ArrayList <E>{
     return data[index];
   }
 
-  //E represents any type of object
+  //replaces old value and returns it
   public E set(int index, E element){
+    //E represents any type of object
     if(index < 0 || index >= size){
       return throw new ArrayIndexOutOfBoundsException(index);
     }
@@ -41,6 +42,35 @@ public class ArrayList <E>{
     data[index] = element;
     return oldValue;
   }
+
+  public boolean add(E element){
+    growIfFull();
+
+    data[size] = element;
+    size++;
+    return true;
+
+
+    return;
+  }
+
+  private void growIfFull(){
+
+    if(this.size == this.data.length){
+      //bigger can be called outside of the for loop because
+      //its defined outside
+        E[] bigger = (E[]) new Object[this.data.length * 2];
+
+        for(int i = 0; i < bigger.length; i++){
+          bigger[i] = data[i];
+        }
+        data = bigger;
+    }
+
+    return;
+  }
+
+
 
   public static void main(String[] args){
 
