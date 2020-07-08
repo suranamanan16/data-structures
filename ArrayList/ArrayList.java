@@ -25,7 +25,7 @@ public class ArrayList <E>{
 
   public E getIndex(int index){
     if(index < 0 || index >= size){
-        return throw new ArrayIndexOutOfBoundsException(index);
+        throw new ArrayIndexOutOfBoundsException(index);
     }
 
     return data[index];
@@ -35,7 +35,8 @@ public class ArrayList <E>{
   public E set(int index, E element){
     //E represents any type of object
     if(index < 0 || index >= size){
-      return throw new ArrayIndexOutOfBoundsException(index);
+      //Dont have to return throw statements
+      throw new ArrayIndexOutOfBoundsException(index);
     }
 
     E oldValue = data[index];
@@ -43,16 +44,34 @@ public class ArrayList <E>{
     return oldValue;
   }
 
+//Add at the end of the arraylist
+//Big 0 is O(1) and is amortized
+//becomes O(n) when you you run out of space
   public boolean add(E element){
     growIfFull();
 
     data[size] = element;
     size++;
     return true;
-
-
-    return;
   }
+
+//add at an index
+
+  public void add(int index, E element){
+    if(index < 0 || index >= size){
+      throw new ArrayIndexOutOfBoundsException(index);
+    }
+
+    for(int i = size - 1; i >= index; i--){
+      data[i + 1] = data[i];
+    }
+
+    data[index] = element;
+    size++;
+
+
+  }
+
 
   private void growIfFull(){
 
@@ -69,6 +88,8 @@ public class ArrayList <E>{
 
     return;
   }
+
+
 
 
 
