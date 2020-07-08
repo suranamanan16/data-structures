@@ -18,7 +18,7 @@ public class ArrayList <E>{
   public ArrayList(){
     //E represents any type of object
     //Object array holds a null object bu default
-    this.data = (E[]) new Objects[1];
+    this.data = (E[]) new Object[1];
     //Number of elements in the array
     this.size = 0;
   }
@@ -89,6 +89,9 @@ public class ArrayList <E>{
     return;
   }
 
+  public static void main(String[] args){
+    System.out.println("It works");
+  }
 
 
 
