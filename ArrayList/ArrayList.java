@@ -11,17 +11,22 @@ public class ArrayList <E>{
   //We can make methods that can act as a
   //medium for users to access these variables indirectly
   //eg getters and setters
-  private E[] objects;
+  private E[] data;
   private int size;
 
 
   public ArrayList(){
-    this.objects = (E[]) new Objects[];
-    this.size = 0
+    this.data = (E[]) new Objects[1];
+    //Number of elements in the array
+    this.size = 0;
   }
 
   public int getIndex(int index){
-    
+    if(index < 0 || index >= size){
+        return throw new ArrayIndexOutOfBoundsException(index);
+    }
+
+    return data[index];
   }
 
   public static void main(String[] args){
