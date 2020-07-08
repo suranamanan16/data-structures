@@ -16,17 +16,30 @@ public class ArrayList <E>{
 
 
   public ArrayList(){
+    //E represents any type of object
+    //Object array holds a null object bu default
     this.data = (E[]) new Objects[1];
     //Number of elements in the array
     this.size = 0;
   }
 
-  public int getIndex(int index){
+  public E getIndex(int index){
     if(index < 0 || index >= size){
         return throw new ArrayIndexOutOfBoundsException(index);
     }
 
     return data[index];
+  }
+
+  //E represents any type of object
+  public E set(int index, E element){
+    if(index < 0 || index >= size){
+      return throw new ArrayIndexOutOfBoundsException(index);
+    }
+
+    E oldValue = data[index];
+    data[index] = element;
+    return oldValue;
   }
 
   public static void main(String[] args){
