@@ -19,7 +19,8 @@ class TreeNode{
           left = new TreeNode(value);
 
         }else{
-          return left.insert(value);
+          //DONT RETURN ANYTHING HERE
+           left.insert(value);
         }
 
     }else{
@@ -28,11 +29,57 @@ class TreeNode{
           right = new TreeNode(value);
 
         }else{
-          return right.insert(value);
+          right.insert(value);
         }
 
       }
   }
+
+  //You are doing binary search on the Tree
+  //the time is logn
+  public TreeNode get(int value){
+    if(value == data){
+      return this;
+    }
+
+    if(value < data){
+      if(left != null){
+        return left.get(value);
+      }else{
+        return null;
+      }
+    }else{
+      if(right != null){
+        return right.get(value);
+      }else{
+        return null;
+      }
+    }
+  }
+
+  public int max(){
+    if(right != null){
+      return right.max();
+    }else{
+      return data;
+    }
+  }
+
+  public int min(){
+    if(left != null){
+      return left.min();
+    }else{
+      return data;
+    }
+  }
+
+  @Override
+
+   public String toString() {
+
+        return  "data = " + data ;
+
+    }
 
 
 
