@@ -19,7 +19,7 @@ class TreeNode{
           left = new TreeNode(value);
 
         }else{
-          left.insert(value);
+          return left.insert(value);
         }
 
     }else{
@@ -28,7 +28,7 @@ class TreeNode{
           right = new TreeNode(value);
 
         }else{
-          right.insert(value);
+          return right.insert(value);
         }
 
       }
